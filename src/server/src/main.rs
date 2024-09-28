@@ -113,12 +113,22 @@ fn main() {
 
     // Path to the plugin dynamic library
     // Ensure the plugin is compiled as a dynamic library (`cdylib`)
+    #[cfg(not(debug_assertions))]
     let plugin_path = if cfg!(target_os = "windows") {
-        "plugins\\example_plugin.dll"
+        "target\\release\\example_plugin.dll"
     } else if cfg!(target_os = "macos") {
-        "plugins/libexample_plugin.dylib"
+        "target/release/libexample_plugin.dylib"
     } else {
-        "plugins/libexample_plugin.so"
+        "target/release/libexample_plugin.so"
+    };
+
+    #[cfg(debug_assertions)]
+    let plugin_path = if cfg!(target_os = "windows") {
+        "target\\debug\\example_plugin.dll"
+    } else if cfg!(target_os = "macos") {
+        "target/debug/libexample_plugin.dylib"
+    } else {
+        "target/debug/libexample_plugin.so"
     };
 
     // Load the plugin
