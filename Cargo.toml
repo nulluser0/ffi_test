@@ -1,0 +1,11 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "src/server",
+    "src/example_plugin"
+]
+
+[workspace.dependencies]
+server = { path = "src/server" }
+example_plugin = { path = "src/example_plugin" }

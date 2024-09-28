@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.lock": "toml",
+        "cstdarg": "cpp",
+        "cstdint": "cpp",
+        "new": "cpp"
+    }
+}
